@@ -2,10 +2,20 @@
 
 import skilstak.colors as c
 
-try:
-   print(c.clear) 
-   while True:
-       print(c.rc() + ' Hello World! ' + c.x, end='')
-except KeyboardInterrupt:
-    exit(i)
+def color():
+    print(c.clear)
+    while True:
+        print(c.rc() + "Hello World" + c.reset, end=" ")
 
+def hello(kind='plain'):
+    try:
+        pass
+    except KeyboardInterrupt:
+        return
+
+if __name__ == '__main__':
+    import sys
+    if len(sys.argv) == 1:
+        hello()
+    else:
+        hello(sys.argv[1])
