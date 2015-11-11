@@ -3,18 +3,25 @@
 import skilstak.colors as c
 import time
 
-def plain(message):
+def print_plain(message):
     print(c.clear + c.rc() + message + c.reset)
 
-def multi(message):
+def print_multi(message):
     while True:
         print(c.clear + c.multi(message))
         time.sleep(0.5)
 
-def color(message):
+def print_color(message):
     print(c.clear)
     while True:
         print(c.rc() + message + c.reset, end=" ")
+
+def print_turtle(message):
+    print(c.clear)
+    #prints 'turtle' forever
+    while True:
+        print(c.rc() + message + c.reset, end=" ")
+    time.sleep(0.49999)
 
 if __name__ == '__main__':
     import sys
@@ -36,10 +43,12 @@ if __name__ == '__main__':
 
     try:
         if option == "-m":
-            multi(message)
+            print_multi(message)
         elif option == "-c":
-            color(message)
-        else:
-            plain(message)
+            print_color(message)
+        elif option == "-t":
+            print_turtle(message)
+        else: 
+            print_plain(message)
     except KeyboardInterrupt:
         exit()
